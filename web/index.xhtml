@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./plantillas/Plantilla.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <h:form >
+            <p:panel header="Reportes">
+                <p:panelGrid >
+                    <p:row>
+                        <p:column>
+                            <p:commandButton value="Ventas por Fecha" actionListener="#{reportesControl.generarReporte()}"  ajax="false" onclick="target = '_blank'"/>
+                        </p:column>
+                        <p:column>
+                            <p:calendar value="#{reportesControl.fechaInicio}" showOn="button" pattern="dd/MM/yyyy" placeholder="Fecha de Inicio" navigator="true" effect="explode" />
+                            <p:calendar value="#{reportesControl.fechaFin}" showOn="button" pattern="dd/MM/yyyy" placeholder="Fecha de Finalización" navigator="true" effect="shake"/>
+                            <p:commandButton value="Ventas Filtradas" actionListener="#{reportesControl.generarReporteFiltrado()}"  ajax="false" onclick="target = '_blank'"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
